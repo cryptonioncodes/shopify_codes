@@ -1,0 +1,129 @@
+<h2>
+  <span>{{ section.settings.heading }}</span> <span>{{ section.settings.heading2 }}</span>
+</h2>
+
+<ul class="feat-products-list">
+  {% for block in section.blocks %}
+    <li>
+      <img src="{{ block.settings.prod_img | image_url }}" alt="" width="" height="">
+
+      <h4>
+        <a href="{{ block.settings.button_link }}">{{ block.settings.heading_prod }}</a>
+      </h4>
+    </li>
+  {% endfor %}
+</ul>
+
+{% schema %}
+{
+  "name": "Shopify Collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading 2"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_bg_color",
+      "label": "Use alternate background"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": "Products per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "Number of rows",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 1
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_grid_type",
+      "label": "Show product type"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sale_label",
+      "label": "Show sale badges",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' button",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_quick_view",
+      "label": "Enable quick view",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "productcat",
+      "name": "Product Cat",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "prod_img",
+          "label": "Upload Image"
+        },
+        {
+          "type": "text",
+          "id": "heading_prod",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shopify Collections",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
